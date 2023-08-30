@@ -5,7 +5,7 @@ import time
 
 host = "localhost"
 port = 4444
-password = "123"  # If you have set a password for obs-websocket in OBS
+password = "123456"  # If you have set a password for obs-websocket in OBS
 scene_name = 'Scene'
 
 def set_video_source(vid_path: str, looping = False):
@@ -21,8 +21,8 @@ def set_video_source(vid_path: str, looping = False):
 if __name__ == "__main__":
 
     # write these in yourself
-    looping_file_path = 'C:\\Users\\karl\\projects\\auto-streamer\\test_1.mp4'
-    other_vid_path = 'C:\\Users\\karl\\projects\\auto-streamer\\test_2.mp4'
+    looping_file_path = r"C:\Users\jonma\github_repos\jonmatthis\auto-streamer\idle_animation.gif"
+    other_vid_path = r"C:\Users\jonma\github_repos\jonmatthis\auto-streamer\384ef4e6-e389-4328-92fe-ddfc649748ec.mp4"
 
     toggle = False
 

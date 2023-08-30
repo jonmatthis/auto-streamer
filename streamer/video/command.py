@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from pydantic import BaseModel
 import asyncio
 import uuid
@@ -33,7 +35,9 @@ async def text_to_video_command(text: str) -> VideoCommand:
     video = get_video_for(audio)
 
     # write the video bytes as a video file for OBS to play easily
-    vid_path = f'{uuid.uuid4()}.mp4'
+    vid_path = Path().home() /"autostreamer_data"/"videos" / f'{uuid.uuid4()}.mp4'
+    vid_path.parent.mkdir(parents=True, exist_ok=True)
+    vid_path = str(vid_path)
 
     with open(vid_path, 'wb') as f:
         f.write(video)
@@ -62,7 +66,7 @@ async def play_video_command(command: VideoCommand):
     time.sleep(command.duration + 1)
 
     # delete the video (so we don't persist all of the videos on disk)
-    os.remove(command.path)
+    # os.remove(command.path)
 
 
 async def main():
